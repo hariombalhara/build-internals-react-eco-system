@@ -1,7 +1,7 @@
 {
   "name": "building-suspense-for-data-fetching-with-react-context",
   "version": "1.0.0",
-  "description": "Test",
+  "description": "Building React Suspense Using React Context",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
