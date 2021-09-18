@@ -6,7 +6,7 @@ let resource = createResource(
   (function () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve("I am shown after 2 seconds");
+        resolve("I ammm shown after 2 seconds");
       }, 2000);
     });
   })()
