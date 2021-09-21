@@ -36,11 +36,17 @@ export function createResource(promise) {
   return {
     useRead: function () {
       let { suspend } = React.useContext(SuspenseContext);
+      // Wrap the call to suspend in useEffect so that Suspense component doesn't update when the Suspense Child component is being rendered
+      // This is avoiding this warning https://github.com/facebook/react/issues/18178
+      // Though, even after this warning the component still updates properly.
+      React.useEffect(function () {
+        if (!data & !error) {
+          suspend(promise);
+        }
+      });
+
       if (error) {
         throw error;
-      }
-      if (!data) {
-        suspend(promise);
       }
       return data;
     }
